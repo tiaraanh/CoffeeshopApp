@@ -1,22 +1,20 @@
-//
-//  ContentView.swift
-//  CoffeeshopApp
-//
-//  Created by Tiara H on 18/11/22.
-//
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            LinearGradient(colors: [.purple, .indigo], startPoint: .leading, endPoint: .bottom)
+                .ignoresSafeArea()
+            
+            Text("Hello iOS Developers")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            .foregroundColor(.green)
         }
-        .padding()
+        
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
