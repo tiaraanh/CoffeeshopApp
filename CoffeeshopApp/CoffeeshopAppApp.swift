@@ -5,7 +5,8 @@ import SwiftUI
 struct CoffeeshopAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            CoffeeshopListView()
         }
     }
 }

@@ -38,7 +38,7 @@ struct CoffeeshopDetailView: View {
                                     .fontWeight(.bold)
                             }
                         }
-                            
+                        
                     }
                 
                 VStack {
