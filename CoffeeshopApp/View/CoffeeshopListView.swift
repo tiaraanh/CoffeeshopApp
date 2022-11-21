@@ -76,22 +76,22 @@ struct CoffeeshopListView: View {
                         
                     }
                 }
-                .navigationTitle("Coffee Shop")
                 
-                // searchBar
-                .searchable(
-                    text: $searchText,
-                    // isHide=false
-                    placement: .navigationBarDrawer(displayMode: .always),
-                    // placeholder
-                    prompt: "search coffeshops"
-                ) {
-                    // add another filter to searchResult
-                    ForEach(suggestResult) { result in
-                        Text("Looking for \(result.name)?")
-                            .searchCompletion(result.name)
-                    }
-                }
+            }
+        } .navigationTitle("Coffee Shop")
+        
+        // searchBar
+        .searchable(
+            text: $searchText,
+            // isHide=false
+            placement: .navigationBarDrawer(displayMode: .always),
+            // placeholder
+            prompt: "search coffeshops"
+        ) {
+            // add another filter to searchResult
+            ForEach(suggestResult) { result in
+                Text("Looking for \(result.name)?")
+                    .searchCompletion(result.name)
                 
             }
            
