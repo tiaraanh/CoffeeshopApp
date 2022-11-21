@@ -22,11 +22,12 @@ struct CoffeeshopListView: View {
         } else {
             return result.filter {
                 $0.name.lowercased().contains(searchText.lowercased())
-                || $0.location.lowercased().contains(searchText)
+//                || $0.location.lowercased().contains(searchText)
             }
         }
     }
     
+    // text search model
     private var suggestResult: [CoffeeshopModel] {
         if searchText.isEmpty {
             return []
@@ -37,6 +38,8 @@ struct CoffeeshopListView: View {
     
     // MARK: - BODY
     var body: some View {
+        
+        // to push need to embed in nav stack
         NavigationStack {
             List(coffeeshopResult) { result in
                 
@@ -78,11 +81,14 @@ struct CoffeeshopListView: View {
                 // searchBar
                 .searchable(
                     text: $searchText,
+                    // isHide=false
                     placement: .navigationBarDrawer(displayMode: .always),
+                    // placeholder
                     prompt: "search coffeshops"
                 ) {
+                    // add another filter to searchResult
                     ForEach(suggestResult) { result in
-                        Text("Looking for \(result.name) - \(result.location)?")
+                        Text("Looking for \(result.name)?")
                             .searchCompletion(result.name)
                     }
                 }

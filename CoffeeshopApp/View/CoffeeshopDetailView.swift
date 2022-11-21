@@ -17,10 +17,11 @@ struct CoffeeshopDetailView: View {
             LinearGradient(colors: [.indigo, .white], startPoint: .bottom, endPoint: .top)
                 .ignoresSafeArea()
             
-            VStack(alignment: .center, spacing: -50) {
+            VStack(alignment: .center, spacing: 0) {
                 Image(coffeeshopDetails.image)
+                    .resizable()
                     .scaledToFill()
-                    .frame(width: 300)
+                    .frame(width: 250, height: 250)
                     .clipShape(Circle())
                     .overlay {
                         ZStack {
@@ -29,31 +30,40 @@ struct CoffeeshopDetailView: View {
                             
                             VStack {
                                 Image(systemName: "person.crop.circle.fill.badge.plus")
-                                    .foregroundColor(.white)
+                                    .renderingMode(.original)
+                                    .foregroundColor(.blue)
                                     .font(.system(.largeTitle, design: .rounded))
                                     .fontWeight(.bold)
                                 Text(coffeeshopDetails.name)
                                     .foregroundColor(.white)
-                                    .font(.system(.largeTitle, design: .rounded))
+                                    .font(.system(.title, design: .rounded))
                                     .fontWeight(.bold)
                             }
                         }
                         
                     }
                 
-                VStack {
+                VStack(alignment: .center, spacing: -20) {
                     Text(coffeeshopDetails.review)
+                        .padding(30)
                         .foregroundColor(.blue)
                         .font(.system(.headline, design: .rounded))
                         .fontWeight(.regular)
                         .lineSpacing(4)
                         .multilineTextAlignment(.center)
                         .padding()
-                    Text(coffeeshopDetails.location)
-                        .foregroundColor(.red)
-                        .font(.system(.callout, design: .rounded))
-                        .fontWeight(.light)
-                        .multilineTextAlignment(.center)
+                    
+                    HStack {
+                        Image(systemName: "pin.circle")
+                            .foregroundColor(.red)
+                            .font(.system(.title2))
+                        
+                        Text(coffeeshopDetails.location)
+                            .foregroundColor(.red)
+                            .font(.system(.callout, design: .rounded))
+                            .fontWeight(.light)
+                            .multilineTextAlignment(.center)
+                    }
                 }
                 Spacer()
             }
