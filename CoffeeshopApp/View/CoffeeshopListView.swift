@@ -21,23 +21,24 @@ struct CoffeeshopListView: View {
         // search text filter
         //        if searchText.isEmpty {
         return result
-        //        } else {
-        //            return result.filter {
-        //                $0.name.lowercased().contains(searchText.lowercased())
-        ////                || $0.location.lowercased().contains(searchText)
-        //            }
-        //        }
+      /*          } else {
+                    return result.filter {
+                        $0.name.lowercased().contains(searchText.lowercased())
+                        || $0.location.lowercased().contains(searchText)
+                    }
+                }
+       */
     }
     
-    // text search model
-    //    private var suggestResult: [CoffeeshopModel] {
-    ////        if searchText.isEmpty {
-    ////            return []
-    ////        } else {
-    //            return coffeeshopResult
-    ////        }
-    //    }
-    
+  /*   text search model
+        private var suggestResult: [CoffeeshopModel] {
+            if searchText.isEmpty {
+                return []
+            } else {
+                return coffeeshopResult
+            }
+        }
+  */
     // MARK: - BODY
     var body: some View {
         
@@ -52,17 +53,18 @@ struct CoffeeshopListView: View {
                             CoffeeshopDetailView(coffeeshopDetails: result)
                         }) {
                             EmptyView()
-                            .opacity(0)
                             
-                            CoffeeshopRow(viewModel: result)
                             
-                        }   //: CoffeeshopDetailView
+                        }
+                        .opacity(0)
                         
+                        CoffeeshopRow(viewModel: result)
+        
                     } //: ZSTACK
                     
                 } //: ForEach
                 .onDelete { indexSet in
-                    //                    coffeeshopResult.remove(atOffsets: indexSet)
+                
                 }
                 
                 .redacted(reason: isLoading ? .placeholder : [])
@@ -82,21 +84,21 @@ struct CoffeeshopListView: View {
         } //: NavigationStack
         .navigationTitle("Coffee Shop")
         
-        // searchBar
-        //        .searchable(
-        //            text: $searchText,
-        //            // isHide=false
-        //            placement: .navigationBarDrawer(displayMode: .always),
-        //            // placeholder
-        //            prompt: "search coffeshops"
-        //        ) {
-        //            // add another filter to searchResult
-        //            ForEach(suggestResult) { result in
-        //                Text("Looking for \(result.name)?")
-        //                    .searchCompletion(result.name)
-        //
-        //            }
+     /*    searchBar
+                .searchable(
+                    text: $searchText,
+                    // isHide=false
+                    placement: .navigationBarDrawer(displayMode: .always),
+                    // placeholder
+                    prompt: "search coffeshops"
+                ) {
+                    // add another filter to searchResult
+                    ForEach(suggestResult) { result in
+                        Text("Looking for \(result.name)?")
+                            .searchCompletion(result.name)
         
+                    }
+        */
         
     } // MARK : NAVIGATION
     
@@ -182,6 +184,11 @@ struct CoffeeshopRow: View {
             }
             .tint(.indigo)
         }
+        
+        .alert(isPresented: $isShowingAlert) {
+            Alert(title: Text("Not yet Available"), message: Text("This feature is not available yet"), dismissButton: .default(Text("OK buddy")))
+        }
+        
         .contextMenu {
             Button {
                 isShowingAlert.toggle()
@@ -191,9 +198,7 @@ struct CoffeeshopRow: View {
                     Image(systemName: "pin")
                 }
             }
-            .alert(isPresented: $isShowingAlert) {
-                Alert(title: Text("Not yet Available"), message: Text("This feature is not available yet"), dismissButton: .default(Text("OK buddy")))
-            }
+           
 
             Button {
                 viewModel.isFavorite.toggle()
