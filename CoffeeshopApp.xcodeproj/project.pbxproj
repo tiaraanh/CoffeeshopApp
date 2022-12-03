@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		949C0AD12927BA0E00F9F1EE /* CoffeeshopAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C0AD02927BA0E00F9F1EE /* CoffeeshopAppApp.swift */; };
-		949C0AD32927BA0E00F9F1EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C0AD22927BA0E00F9F1EE /* ContentView.swift */; };
+		949C0AD32927BA0E00F9F1EE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C0AD22927BA0E00F9F1EE /* MainView.swift */; };
 		949C0AD52927BA1000F9F1EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 949C0AD42927BA1000F9F1EE /* Assets.xcassets */; };
 		949C0AD82927BA1000F9F1EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 949C0AD72927BA1000F9F1EE /* Preview Assets.xcassets */; };
 		949C0AF62928B5F500F9F1EE /* CoffeeshopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C0AF52928B5F500F9F1EE /* CoffeeshopModel.swift */; };
 		949C0AF82928C15E00F9F1EE /* CoffeeshopListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C0AF72928C15E00F9F1EE /* CoffeeshopListView.swift */; };
 		949C0AFC2928F54600F9F1EE /* CoffeeshopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C0AFB2928F54600F9F1EE /* CoffeeshopDetailView.swift */; };
+		949C28292939F73100A25A63 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 949C28282939F73100A25A63 /* CachedAsyncImage */; };
+		949C282C2939F75600A25A63 /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 949C282B2939F75600A25A63 /* ActivityView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		949C0ACD2927BA0E00F9F1EE /* CoffeeshopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeshopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		949C0AD02927BA0E00F9F1EE /* CoffeeshopAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeshopAppApp.swift; sourceTree = "<group>"; };
-		949C0AD22927BA0E00F9F1EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		949C0AD22927BA0E00F9F1EE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		949C0AD42927BA1000F9F1EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		949C0AD72927BA1000F9F1EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		949C0AF52928B5F500F9F1EE /* CoffeeshopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeshopModel.swift; sourceTree = "<group>"; };
@@ -32,6 +34,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				949C282C2939F75600A25A63 /* ActivityView in Frameworks */,
+				949C28292939F73100A25A63 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,7 +64,7 @@
 				949C0AF42928B5D900F9F1EE /* Model */,
 				949C0AF32928B55200F9F1EE /* View */,
 				949C0AD02927BA0E00F9F1EE /* CoffeeshopAppApp.swift */,
-				949C0AD22927BA0E00F9F1EE /* ContentView.swift */,
+				949C0AD22927BA0E00F9F1EE /* MainView.swift */,
 				949C0AD42927BA1000F9F1EE /* Assets.xcassets */,
 				949C0AD62927BA1000F9F1EE /* Preview Content */,
 			);
@@ -108,6 +112,10 @@
 			dependencies = (
 			);
 			name = CoffeeshopApp;
+			packageProductDependencies = (
+				949C28282939F73100A25A63 /* CachedAsyncImage */,
+				949C282B2939F75600A25A63 /* ActivityView */,
+			);
 			productName = CoffeeshopApp;
 			productReference = 949C0ACD2927BA0E00F9F1EE /* CoffeeshopApp.app */;
 			productType = "com.apple.product-type.application";
@@ -136,6 +144,10 @@
 				Base,
 			);
 			mainGroup = 949C0AC42927BA0E00F9F1EE;
+			packageReferences = (
+				949C28272939F73100A25A63 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				949C282A2939F75600A25A63 /* XCRemoteSwiftPackageReference "ActivityView" */,
+			);
 			productRefGroup = 949C0ACE2927BA0E00F9F1EE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -163,7 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				949C0AF82928C15E00F9F1EE /* CoffeeshopListView.swift in Sources */,
-				949C0AD32927BA0E00F9F1EE /* ContentView.swift in Sources */,
+				949C0AD32927BA0E00F9F1EE /* MainView.swift in Sources */,
 				949C0AD12927BA0E00F9F1EE /* CoffeeshopAppApp.swift in Sources */,
 				949C0AFC2928F54600F9F1EE /* CoffeeshopDetailView.swift in Sources */,
 				949C0AF62928B5F500F9F1EE /* CoffeeshopModel.swift in Sources */,
@@ -367,6 +379,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		949C28272939F73100A25A63 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		949C282A2939F75600A25A63 /* XCRemoteSwiftPackageReference "ActivityView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUI-Plus/ActivityView.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		949C28282939F73100A25A63 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 949C28272939F73100A25A63 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+		949C282B2939F75600A25A63 /* ActivityView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 949C282A2939F75600A25A63 /* XCRemoteSwiftPackageReference "ActivityView" */;
+			productName = ActivityView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 949C0AC52927BA0E00F9F1EE /* Project object */;
 }
