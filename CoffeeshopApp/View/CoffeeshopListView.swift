@@ -12,59 +12,32 @@ import ActivityView
 struct CoffeeshopListView: View {
     
     // MARK: - PROPERTIES
-    //    @State private var searchText: String = ""
     @State private var isLoading: Bool = true
-
+    
     private var coffeeshopResult: [CoffeeshopModel] {
         let result = CoffeeshopModel.CoffeeshopProvider.all()
-        
-        // search text filter
-        //        if searchText.isEmpty {
         return result
-      /*          } else {
-                    return result.filter {
-                        $0.name.lowercased().contains(searchText.lowercased())
-                        || $0.location.lowercased().contains(searchText)
-                    }
-                }
-       */
     }
-    
-  /*   text search model
-        private var suggestResult: [CoffeeshopModel] {
-            if searchText.isEmpty {
-                return []
-            } else {
-                return coffeeshopResult
-            }
-        }
-  */
     // MARK: - BODY
     var body: some View {
-        
-        // to push need to embed in nav stack
         NavigationStack {
-            
             List {
                 ForEach(coffeeshopResult) { result in
                     ZStack(alignment: .leading) {
-                        // push controller
                         NavigationLink(destination: {
                             CoffeeshopDetailView(coffeeshopDetails: result)
                         }) {
                             EmptyView()
-                            
-                            
                         }
                         .opacity(0)
                         
                         CoffeeshopRow(viewModel: result)
-        
+                        
                     } //: ZSTACK
                     
                 } //: ForEach
                 .onDelete { indexSet in
-                
+                    
                 }
                 
                 .redacted(reason: isLoading ? .placeholder : [])
@@ -83,26 +56,9 @@ struct CoffeeshopListView: View {
             
         } //: NavigationStack
         .navigationTitle("Coffee Shop")
-        
-     /*    searchBar
-                .searchable(
-                    text: $searchText,
-                    // isHide=false
-                    placement: .navigationBarDrawer(displayMode: .always),
-                    // placeholder
-                    prompt: "search coffeshops"
-                ) {
-                    // add another filter to searchResult
-                    ForEach(suggestResult) { result in
-                        Text("Looking for \(result.name)?")
-                            .searchCompletion(result.name)
-        
-                    }
-        */
-        
-    } // MARK : NAVIGATION
+    }
     
-    // MARK: - Function
+    // MARK: -Function
     func fetchData() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             isLoading = false
@@ -110,7 +66,7 @@ struct CoffeeshopListView: View {
     }
 }
 
-// MARK: - PREVIEW
+// MARK: -PREVIEW
 struct CoffeeshopListView_Previews: PreviewProvider {
     static var previews: some View {
         CoffeeshopListView()
@@ -130,14 +86,6 @@ struct CoffeeshopRow: View {
                 .scaledToFill()
                 .frame(width: 100, height: 100)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
-            
-            
-            //            } placeholder: {
-            //                Color.gray.opacity(0.1)
-            //            }
-            
-                .frame(width: 120, height: 120)
-                .cornerRadius(20)
             
             VStack(alignment: .leading) {
                 Text("\(viewModel.name)")
@@ -198,8 +146,8 @@ struct CoffeeshopRow: View {
                     Image(systemName: "pin")
                 }
             }
-           
-
+            
+            
             Button {
                 viewModel.isFavorite.toggle()
             } label: {
