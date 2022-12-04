@@ -6,9 +6,6 @@ This project is part of weekly assignment from iOS Development Bootcamp from iSw
 
 
 
-## Badges
-
-![Badges](https://res.cloudinary.com/daqnfi8q7/image/upload/v1670149037/CoffeeshopApp/CoffeeshopApp_e8ylid.png)
 
 
 ## Features
